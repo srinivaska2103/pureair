@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2C8 6 4 10 4 14C4 18 8 22 12 22C16 22 20 18 20 14C20 10 16 6 12 2Z' fill='%233b82f6' fill-opacity='0.1'%3E%3C/path%3E%3Cpath d='M9 10L15 10' stroke='%232563eb'%3E%3C/path%3E%3Cpath d='M8 14L16 14' stroke='%232563eb'%3E%3C/path%3E%3Cpath d='M9 18L15 18' stroke='%232563eb'%3E%3C/path%3E%3C/svg%3E">
+    <title>Coming Soon |Pure Air</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' };
+        function applySettings() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else { document.documentElement.classList.remove('dark'); }
+            document.documentElement.dir = localStorage.dir || 'ltr';
+        }
+        applySettings();
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300 font-sans min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between p-6">
+          <a href="index.html" class="flex items-center gap-3 text-2xl font-bold text-blue-600 hover:scale-105 transition-transform duration-300">
+            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C8 6 4 10 4 14C4 18 8 22 12 22C16 22 20 18 20 14C20 10 16 6 12 2Z" class="text-blue-500" fill="currentColor" fill-opacity="0.1"></path>
+                <path d="M9 10L15 10" class="text-blue-600"></path>
+                <path d="M8 14L16 14" class="text-blue-600"></path>
+                <path d="M9 18L15 18" class="text-blue-600"></path>
+            </svg>
+            <span>PureAir</span>
+        </a>
+        <div class="flex gap-2">
+            <button onclick="toggleDir()" class="w-10 h-10 flex items-center justify-center rounded-full border bg-white dark:bg-slate-800 text-xs font-semibold">LTR</button>
+            <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-full border bg-white dark:bg-slate-800">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="text-center max-w-lg">
+            <div class="inline-block p-4 mb-8 bg-blue-50 dark:bg-blue-900/20 text-blue-600 rounded-3xl">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-semibold mb-6">Something exciting is coming</h1>
+            <p class="text-slate-500 text-lg font-normal mb-10">We are currently building something amazing. Stay tuned for the launch!</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 bg-white dark:bg-slate-900 p-2 rounded-2xl border dark:border-slate-800 shadow-xl">
+                <input type="email" placeholder="Enter your email" class="flex-grow p-4 bg-transparent outline-none px-4">
+                <button class="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all">Notify Me</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+        function toggleDir() {
+            const dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            document.documentElement.dir = dir;
+            localStorage.dir = dir;
+        }
+    </script>
+</body>
+</html>

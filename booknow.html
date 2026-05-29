@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2C8 6 4 10 4 14C4 18 8 22 12 22C16 22 20 18 20 14C20 10 16 6 12 2Z' fill='%233b82f6' fill-opacity='0.1'%3E%3C/path%3E%3Cpath d='M9 10L15 10' stroke='%232563eb'%3E%3C/path%3E%3Cpath d='M8 14L16 14' stroke='%232563eb'%3E%3C/path%3E%3Cpath d='M9 18L15 18' stroke='%232563eb'%3E%3C/path%3E%3C/svg%3E">
+    <title>Book Service | Pure Air</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' };
+        function applySettings() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else { document.documentElement.classList.remove('dark'); }
+            document.documentElement.dir = localStorage.dir || 'ltr';
+        }
+        applySettings();
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300 font-sans min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between p-6">
+         <a href="index.html" class="flex items-center gap-3 text-2xl font-bold text-blue-600 hover:scale-105 transition-transform duration-300">
+            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C8 6 4 10 4 14C4 18 8 22 12 22C16 22 20 18 20 14C20 10 16 6 12 2Z" class="text-blue-500" fill="currentColor" fill-opacity="0.1"></path>
+                <path d="M9 10L15 10" class="text-blue-600"></path>
+                <path d="M8 14L16 14" class="text-blue-600"></path>
+                <path d="M9 18L15 18" class="text-blue-600"></path>
+            </svg>
+            <span>PureAir</span>
+        </a>
+        <div class="flex gap-2">
+            <button onclick="toggleDir()" class="w-10 h-10 flex items-center justify-center rounded-full border bg-white dark:bg-slate-800 text-xs font-semibold">LTR</button>
+            <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-full border bg-white dark:bg-slate-800">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Booking Form -->
+    <main class="container mx-auto p-6 flex items-center justify-center min-h-[80vh]">
+        <div class="w-full max-w-2xl bg-white dark:bg-slate-900 p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-2xl transition-all">
+            <h2 class="text-3xl font-semibold mb-2">Book Your Service</h2>
+            <p class="text-slate-500 mb-8 font-normal">Schedule your professional Vexa Tech visit today.</p>
+            
+            <form class="space-y-6" onsubmit="event.preventDefault()">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Full Name" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                    <input type="tel" placeholder="Phone Number" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                </div>
+                
+                <select class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                    <option>Select Service</option>
+                    <option>Deep Duct Cleaning</option>
+                    <option>Airflow Inspection</option>
+                    <option>Filter Replacement</option>
+                </select>
+
+                <input type="date" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                
+                <textarea placeholder="Additional instructions or location details" class="w-full p-4 h-32 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-blue-500 transition-all"></textarea>
+
+                <button class="w-full py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 active:scale-[0.98] transition-all shadow-lg shadow-blue-600/20">Confirm Booking</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+        function toggleDir() {
+            const dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            document.documentElement.dir = dir;
+            localStorage.dir = dir;
+        }
+    </script>
+</body>
+</html>

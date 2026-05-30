@@ -146,22 +146,28 @@
     };
 </script>
 </aside>
- <script>
+<script>
     const switchTab = (tabId, btnElement) => {
         // 1. Hide all tab content
         document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
         document.getElementById(tabId).classList.remove('hidden');
 
-        // 2. Remove 'active' styles from ALL buttons (in both sidebar and mobile)
+        // 2. Remove 'active' styles from ALL buttons
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('bg-primary/10', 'text-primary');
-            // Add back the default hover colors if needed
-            btn.classList.add('hover:bg-primary/10', 'hover:text-primary');
+            btn.classList.add('hover:bg-slate-100', 'dark:hover:bg-slate-800'); // Reset hover
         });
 
         // 3. Add 'active' styles to the clicked button
         btnElement.classList.add('bg-primary/10', 'text-primary');
-        btnElement.classList.remove('hover:bg-primary/10', 'hover:text-primary');
+        btnElement.classList.remove('hover:bg-slate-100', 'dark:hover:bg-slate-800');
+
+        // --- NEW: AUTO-CLOSE SIDEBAR ON MOBILE/TABLET ---
+        // Check if the sidebar is in 'fixed' mode (mobile/tablet)
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar.classList.contains('fixed')) {
+            sidebar.classList.add('hidden');
+        }
     };
 </script>
 

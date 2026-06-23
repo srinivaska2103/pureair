@@ -20,23 +20,21 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300 font-sans">
 
     <!-- Navbar -->
-    <nav class="flex items-center justify-between p-6">
-          <a href="index.html" class="flex items-center gap-3 text-2xl font-bold text-blue-600 hover:scale-105 transition-transform duration-300">
-            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C8 6 4 10 4 14C4 18 8 22 12 22C16 22 20 18 20 14C20 10 16 6 12 2Z" class="text-blue-500" fill="currentColor" fill-opacity="0.1"></path>
-                <path d="M9 10L15 10" class="text-blue-600"></path>
-                <path d="M8 14L16 14" class="text-blue-600"></path>
-                <path d="M9 18L15 18" class="text-blue-600"></path>
-            </svg>
-            <span>PureAir</span>
-        </a>
-        <div class="flex gap-2">
-            <button onclick="toggleDir()" class="w-10 h-10 flex items-center justify-center rounded-full border bg-white dark:bg-slate-800 text-xs font-semibold">LTR</button>
-            <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-full border bg-white dark:bg-slate-800">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            </button>
-        </div>
-    </nav>
+     <nav class="flex items-center justify-end p-6">
+    <!-- Modern Toggles: Aligned to the Right -->
+    <div class="flex gap-2">
+        <!-- Direction Toggle -->
+        <button onclick="toggleDir()" class="w-9 h-9 flex items-center justify-center rounded-full border bg-white dark:bg-slate-800 text-[10px] font-bold">
+           LTR
+        </button>
+
+        <!-- Theme Toggle -->
+        <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-full border bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+
+        </button>
+    </div>
+</nav>
 
     <!-- Sign-Up Form -->
    <main class="flex items-center justify-center p-6 mt-6">
@@ -50,6 +48,7 @@
                     <path d="M8 14L16 14" class="text-blue-600"></path>
                     <path d="M9 18L15 18" class="text-blue-600"></path>
                 </svg>
+                <span>PureAir</span>
             </a>
         </div>
 
